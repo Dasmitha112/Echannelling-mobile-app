@@ -9,22 +9,22 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Profile extends AppCompatActivity {
+public class Bookings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_bookings);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.profile);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), homePatient.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -36,8 +36,10 @@ public class Profile extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        finish();
+                        overridePendingTransition(0, 0);
                         return true;
-
                 }
 
                 return false;
